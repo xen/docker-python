@@ -7,6 +7,6 @@ updates:
     time: "03:00"
   open-pull-requests-limit: 10
   reviewers:
-  - playpauseandstop
+  - xen
   assignees:
-  - playpauseandstop
+  - xen

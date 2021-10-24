@@ -1,7 +1,7 @@
 .PHONY: all build deploy run
 
 DOCKER ?= docker
-IMAGE ?= playpauseandstop/docker-python
+IMAGE ?= mxen/docker-python
 TAG ?= latest
 
 all: build
