@@ -1,5 +1,5 @@
 # TODO: Find out whether it possible to use "faster" base Python image
-FROM python:3.9.7-slim-buster as python-base
+FROM python:3.10.0-slim-buster as python-base
 
 LABEL maintainer="Igor Davydenko <iam@igordavydenko.com>"
 LABEL description="Add poetry, pre-commit, and other dev-tools to official Python slim Docker image."
@@ -15,7 +15,7 @@ ENV PATH "${POETRY_HOME}/bin:${PATH}"
 # Install poetry at one stage
 FROM python-base as poetry-base
 
-ENV POETRY_VERSION "1.1.10"
+ENV POETRY_VERSION "1.1.11"
 RUN apt install -y build-essential curl
 RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/install-poetry.py | python
 RUN poetry --version
@@ -43,10 +43,10 @@ RUN apt install -y ${ADDITIONAL_APPS} && apt autoremove -y
 # ```bash
 # pip-latest-release pip pre-commit tox virtualenv
 # ```
-ENV PIP_VERSION "21.2.4"
+ENV PIP_VERSION "21.3.1"
 ENV PRE_COMMIT_VERSION "2.15.0"
 ENV TOX_VERSION "3.24.4"
-ENV VIRTUALENV_VERSION "20.8.1"
+ENV VIRTUALENV_VERSION "20.9.0"
 
 RUN pip install \
     pip==${PIP_VERSION} \
